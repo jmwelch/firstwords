@@ -1,4 +1,8 @@
 Firstwords::Application.routes.draw do
+  get "game/setup"
+
+  get "game/play"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
