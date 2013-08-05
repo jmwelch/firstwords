@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient: MyString
+  date: 2013-08-05 19:40:41
+  category: MyString
+  level: 1
+  correct: 1
+  user_id: 1
+
+two:
+  patient: MyString
+  date: 2013-08-05 19:40:41
+  category: MyString
+  level: 1
+  correct: 1
+  user_id: 1
