@@ -1,2 +1,8 @@
-<h1>Game#setup</h1>
-<p>Find me in app/views/game/setup.html.erb</p>
+<h1>First Words!</h1>
+<p>Welcome to the First Words app, where you can challenge your child's decision making ability.</p>
+<% if !user_signed_in? %>
+	<p>Please <%= link_to "sign in", new_user_session_path %> to save your results.<p>
+<% end %>
+Select a category: <%= select_tag("category", options_from_collection_for_select(Picture.all, :id, :category), include_blank: true) %><br>
+Select a level: <%= select_tag("level", options_for_select([1, 2, 3])) %><br>
+Cummulative? <%= check_box_tag("cummulative") %>
