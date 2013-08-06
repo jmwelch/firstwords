@@ -1,5 +1,6 @@
-<h1>Game#play</h1>
-<p>Find me in app/views/game/play.html.erb</p>
+<h1>Question <%= @question %> of 5</h1>
 
-<%= p "test" %>
-<%= @foo %>
+<h2>Pick the <%= @random %>!</h2>
+<%= link_to(image_tag(@first.link, :width => @first.width, :height => @first.height), game_check_path(:correct => @random, :guessed => @first.name)) %><=====================>
+<%= link_to(image_tag(@second.link, :width => @second.width, :height => @second.height), game_check_path(:correct => @random, :guessed => @second.name)) %>
+

@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+	Picture.create(name: "Cat", link: "cat.jpg", height: 300, width: 225, level: 1, category: "animal")
+	Picture.create(name: "Horse", link: "horse.jpg", height: 300, width: 400, level: 2, category: "animal")
+	Picture.create(name: "Bird", link: "bird.png", height: 300, width: 350, level: 1, category: "animal")
