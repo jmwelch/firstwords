@@ -3,22 +3,33 @@ class GameController < ApplicationController
   end
 
   def play
-		@result = Result.new
-		@result.category = params[:category]
-		@result.level = params[:level]
-		@result.patient = params[:child]
-		@result.date = Time.now
 
-		if user_signed_in?
-			@result.user_id = current_user.id
+		# Only if params[:result] is nil
+		if !params[:result]
+			@result = Result.new
+			@result.category = params[:category]
+			@result.level = params[:level]
+			@result.patient = params[:child]
+			@result.date = Time.now
+			@result.correct = 0
+
+			if user_signed_in?
+				@result.user_id = current_user.id
+			end
+
+		else
+			@result = Result.new(params[:result])
 		end
 
 		@question = params[:question]
 
+		# Pass cumm throughout steps
 		if params[:cummulative]
-			options = Picture.where("level <= ? AND category = ?", params[:level], params[:category])
+			options = Picture.where("level <= ? AND category = ?", @result.level, @result.category)
+			@cummulative = true
 		else
-			options = Picture.where("level = ? AND category = ?", params[:level], params[:category])
+			options = Picture.where("level = ? AND category = ?", @result.level, @result.category)
+			@cummulative = false
 		end
 
 		offset = rand(options.count)
@@ -40,6 +51,28 @@ class GameController < ApplicationController
   end
 
 	def check
+		@result = Result.new(params[:result])
+		@question = params[:question]
+		@cummulative = params[:cummulative]
 
+		if params[:correct] == params[:guessed]
+			flash[:notice] = "Correct!"
+			@result.correct += 1
+		else
+			flash[:notice] = "Sorry, that wasn't right!"
+		end
 	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+

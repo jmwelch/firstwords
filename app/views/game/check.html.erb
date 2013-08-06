@@ -1,0 +1,18 @@
+<% if flash[:notice] == "Sorry, that wasn't right!" %>
+	<%= image_tag("incorrect.jpg") %>
+<% else %>
+	<%= image_tag("correct.jpg") %>
+<% end %>
+<h1>Question <%= @question %> <%= flash[:notice] %></h1>
+
+<% res = {:patient => @result.patient, :date => @result.date, :category => @result.category, :level => @result.level, :correct => @result.correct, :user_id => @result.user_id} %>
+
+<br>
+<% if @question.to_i > 4 %>
+	<%= link_to "See Results", root_path %>
+<% else %>
+	<%= link_to "Next Question", game_play_path(:result => res, :cummulative => @cummulative, :question => @question.to_i + 1) %>
+<% end %>
+
+<br>
+result<%= debug @result %><br>
