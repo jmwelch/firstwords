@@ -3,6 +3,17 @@
 <% if !user_signed_in? %>
 	<p>Please <%= link_to "sign in", new_user_session_path %> to save your results.<p>
 <% end %>
-Select a category: <%= select_tag("category", options_from_collection_for_select(Picture.all, :id, :category), include_blank: true) %><br>
-Select a level: <%= select_tag("level", options_for_select([1, 2, 3])) %><br>
-Cummulative? <%= check_box_tag("cummulative") %>
+
+<%= form_tag(game_play_path, :method => 'get') do %>
+	Select a level:
+	<%= select_tag :level, options_for_select([1, 2, 3]) %><br>
+
+	Select a category:
+	<%= select_tag :category, options_for_select(Picture.all.collect{|p| [p.category, p.category]}.uniq.sort) %><br>
+
+	Cummulative?
+	<%= check_box_tag 'cummulative' %><br>
+
+	<%= submit_tag "Let's Play!" %>
+<% end %>
+
