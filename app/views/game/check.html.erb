@@ -9,7 +9,7 @@
 
 <br>
 <% if @question.to_i > 4 %>
-	<%= link_to "See Results", root_path %>
+	<%= link_to "See Results", game_results_path(:result => res) %>
 <% else %>
 	<%= link_to "Next Question", game_play_path(:result => res, :cummulative => @cummulative, :question => @question.to_i + 1) %>
 <% end %>

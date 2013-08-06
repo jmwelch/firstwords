@@ -4,6 +4,7 @@ Firstwords::Application.routes.draw do
   get "game/setup"
   get "game/play"
 	get "game/check"
+  get "game/results"
 
   root :to => 'game#setup'
 end

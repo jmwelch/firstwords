@@ -62,10 +62,11 @@ class GameController < ApplicationController
 			flash[:notice] = "Sorry, that wasn't right!"
 		end
 	end
+
+	def results
+		@result = Result.create(params[:result])
+	end
 end
-
-
-
 
 
 
