@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  link: MyString
+  height: 1
+  width: 1
+  category: MyString
+  level: 1
+
+two:
+  name: MyString
+  link: MyString
+  height: 1
+  width: 1
+  category: MyString
+  level: 1

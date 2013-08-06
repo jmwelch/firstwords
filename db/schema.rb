@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130805202536) do
+ActiveRecord::Schema.define(:version => 20130806000016) do
+
+  create_table "pictures", :force => true do |t|
+    t.string   "name"
+    t.string   "link"
+    t.integer  "height"
+    t.integer  "width"
+    t.string   "category"
+    t.integer  "level"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "results", :force => true do |t|
+    t.string   "patient"
+    t.datetime "date"
+    t.string   "category"
+    t.integer  "level"
+    t.integer  "correct"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
