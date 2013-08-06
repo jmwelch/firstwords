@@ -14,6 +14,11 @@
 	Cummulative?
 	<%= check_box_tag 'cummulative' %><br>
 
+	<% if user_signed_in? %>
+		Which child is playing?
+		<%= text_field_tag :child %><br>
+	<% end %>
+
 	<%= submit_tag "Let's Play!" %>
 <% end %>
 
