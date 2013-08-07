@@ -6,5 +6,8 @@ Firstwords::Application.routes.draw do
 	get "game/check"
   get "game/results"
 
+  get "result/index"
+  get "result/show"
+
   root :to => 'game#setup'
 end

@@ -1,4 +1,7 @@
 <h1>Congratulations! You're done!</h1>
 <%= @result.patient %> got <%= @result.correct %> correct out of 5!<br><br>
+
+<% res = {:patient => @result.patient, :date => @result.date, :category => @result.category, :level => @result.level, :correct => @result.correct, :user_id => @result.user_id} %>
+
 <%= link_to "Play Again?", root_path %><br>
-<%= link_to "See all of #{@result.patient}'s results", results_show_path %>
+<%= link_to "See all of #{@result.patient}'s results", result_show_path(:name => @result.patient) %>

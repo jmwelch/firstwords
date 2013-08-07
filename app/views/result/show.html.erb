@@ -1,0 +1,36 @@
+<% if !@results.empty? %>
+
+	<h1>Results for <%= @results.first.patient %></h1>
+
+	<table>
+		<tr>
+			<td>Name</td>
+			<td>Date</td>
+			<td>Category</td>
+			<td>Level</td>
+			<td>Correct</td>
+		</tr>
+		<% @results.each do |result| %>
+			<tr>
+				<td><%= result.patient %></td>
+				<td><%= result.date %></td>
+				<td><%= result.category %></td>
+				<td><%= result.level %></td>
+				<td><%= result.correct %></td>
+			</tr>
+		<% end %>
+	</table>
+
+	<%= form_tag(result_show_path, :method => 'get') do %>
+
+		See results for someone else?
+		<%= select_tag :name, options_for_select(@names, :selected => @name), :onchange => "this.form.submit();" %>
+	<% end %>
+
+	<%= link_to "Play Again?", root_path %>
+
+<% else %>
+
+	<h1>No results found!</h1>
+
+<% end %>

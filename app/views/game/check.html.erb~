@@ -14,3 +14,5 @@
 	<%= link_to "Next Question", game_play_path(:result => res, :cummulative => @cummulative, :question => @question.to_i + 1) %>
 <% end %>
 
+<br>
+result<%= debug @result %><br>
